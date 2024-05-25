@@ -1,0 +1,41 @@
+package Quanly;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+public class SalesInvoice {
+	
+		private List<InvoiceDetails> items;
+	    private Date invoiceDate;
+
+	    public SalesInvoice() {
+	        this.items = new ArrayList<>();
+	        this.invoiceDate = new Date(); // Đặt ngày hóa đơn là ngày giờ hiẹn tại
+	    }
+
+	    public void addItem(InvoiceDetails item) {
+	        items.add(item);
+	    }
+
+	    public double getTotalAmount() { //Tổng số lượng cua loại hàng
+	        double total = 0;
+	        for (InvoiceDetails item : items) {
+	            total += item.getTotalPrice();
+	        }
+	        return total;
+	    }
+
+/*	    @Override
+	    public String toString() {
+	        StringBuilder sb = new StringBuilder();
+	        sb.append("Sales Invoice:\n");
+	        sb.append("Invoice Date: ").append(invoiceDate).append("\n");
+	        for (InvoiceDetails item : items) {
+	            sb.append(item.getProducts().getProductName()).append(" - ").append(item.getProducts().getPrice())
+	                    .append(" x ").append(item.getQuantity()).append(" = ").append(item.getTotalPrice())
+	                    .append("\n");
+	        }
+	        sb.append("Total amount: ").append(getTotalAmount());
+	        return sb.toString();*/
+	    }
